@@ -1,0 +1,48 @@
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+    <div class="container">
+    <img class="img-fluid logo-dark mb-2" src="" alt="GED Logo">
+    <div class="loginbox">
+    <div class="login-right">
+    <div class="login-right-wrap">
+    <h1>Login</h1>
+    <p class="account-subtitle">Se connecter pour acceder au tableau de bord</p>
+    <form [formGroup]="loginForm">
+    <div class="form-group">
+    <label class="form-control-label">Nom d'utilisateur</label>
+    <input type="text" class="form-control" formControlName="username" [ngClass]="{'input-error': loginFailed}">
+    </div>
+    <div class="form-group">
+    <label class="form-control-label">Mot de passe</label>
+    <div class="pass-group">
+        <input type="password" class="form-control" formControlName="password" [ngClass]="{'input-error': loginFailed}">
+  
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="row">
+    <div class="col-6">
+    
+    </div>
+    <div class="col-6 text-end">
+    <a class="forgot-link" href="forgot-password.html">Mot de passe oublié ?</a>
+    </div>
+    </div>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>      
+    <button class="btn btn-lg btn-block btn-primary w-100" type="submit" (click)="onSubmit()">Se connecter</button>
+    <div class="login-or">
+    <span class="or-line"></span>
+    <span class="span-or">Ou</span>
+    </div>
+    
+    <div class="text-center dont-have">Pas de compte? <a routerLink="/user/register">S'inscrire</a></div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

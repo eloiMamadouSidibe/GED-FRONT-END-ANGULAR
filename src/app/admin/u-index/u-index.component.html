@@ -1,0 +1,87 @@
+<div class="content container-fluid">
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Utilisateurs</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Utilisateurs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-table">
+                <div class="card-header">
+                    <h4 class="card-title">Liste des utilisateurs</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-stripped table-center table-hover datatable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>login</th>
+                                    <th>Email</th>
+                                    <th>Statut</th>
+                                    <th>Rôle</th>
+                                    <th>Créé le</th>
+                                    <th>Modifié par</th>
+                                    <th>Modifié le </th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of users">
+                                    <td>
+                                        <a id="id" [routerLink]="user.login">{{user.id}}</a>
+                                    </td>
+                                    <td>
+                                        {{user.login}}
+                                    </td>
+                                    <td>
+                                        {{user.email}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-success" *ngIf="user.activated;else isNotActived" 
+                                        (click)="updateStatus(user)">
+                                            Activé
+                                        </button>
+                                        <ng-template #isNotActived>
+                                            <button class="btn btn-sm btn-danger" (click)="updateStatus(user)">Désactivé</button>
+                                        </ng-template>
+                                    </td>
+
+                                    <td>
+                                        <div *ngFor="let authoritie of user.authorities">
+                                            <p class="badge badge-pill bg-primary-light mb-1">{{authoritie}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{user.createdDate | date: 'dd/MM/yy HH:mm'}}</td>
+                                    <td>{{user.lastModifiedBy}}</td>
+                                    <td>{{user.lastModifiedDate | date: 'dd/MM/yy HH:mm'}}</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-success text-white me-2" (click)="getLogin(user.login)"><i
+                                                class="fas fa-edit me-1"></i> Editer</button>
+                                        <button class="btn btn-sm btn-danger text-white me-2"
+                                            [disabled]="user.id === userConnected.id"
+                                            (click)="deleteUser(user.login)"><i
+                                                class="fas fa-trash-alt me-1"></i>Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <mat-paginator
+                        [length]="numberOfElement"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="[2,5,10,this.numberOfElement]"
+                        [showFirstLastButtons]="true"
+                        (page)="onPageChange($event)"
+                        ></mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

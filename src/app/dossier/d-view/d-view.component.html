@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row justify-content-center my-5">
+            <div class="col-xl-10">
+                <div class="card">
+                    <div class="card-body">
+
+
+
+                        <div class="row">
+                            <h1>Dossier [{{dossier.code}}]</h1>
+                            <div class="col-md-6">
+                                <div class="titre">
+                                    <p class="">
+                                        ID <br><hr>
+                                        Code <br><hr>
+                                        Mot Cle <br><hr>
+                                        Date Production <br><hr>
+                                        Type Document <br><hr>
+                                        Boite <br><hr>
+                                        Process <br><hr>
+                                        Service <br><hr>
+                                        Sous Service <br><hr>
+                                    </p>
+                                </div>
+                                <button class="btn btn-primary" routerLink="../">Retour</button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="">
+                                    <p class="">
+                                        {{dossier.id}} <br><hr>
+                                        {{dossier.code}} <br><hr>
+                                        {{dossier.motCle}} <br><hr>
+                                        {{dossier.dateProduction | date: 'dd/MM/yyyy'}} <br><hr>
+                                        {{dossier.typeDocument.code}} <br><hr>
+                                        {{dossier.boite.code}} <br><hr>
+                                        {{dossier.process.code}} <br><hr>
+                                        {{dossier.service.nom}} <br><hr>
+                                        {{dossier.sousService.nom}} <br><hr>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

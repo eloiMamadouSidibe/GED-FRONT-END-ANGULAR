@@ -1,0 +1,8 @@
+<div>
+    <ng-container *ngIf="!isRegisterPage() && !isLoginPage() && !isAdminPage()">
+        <app-menu></app-menu>
+      </ng-container>
+    <router-outlet></router-outlet>
+</div>
+
+

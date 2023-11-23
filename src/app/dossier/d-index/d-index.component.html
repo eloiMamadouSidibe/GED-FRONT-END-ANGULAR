@@ -1,0 +1,82 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Dossier</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Dossier</li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <a routerLink="add" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-stripped table-hover datatable">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Code</th>
+                                        <th>Mot clé</th>
+                                        <th>Date de Production</th>
+                                        <th>Type de Document</th>
+                                        <th>Boite</th>
+                                        <th>process</th>
+                                        <th>Service</th>
+                                        <th>Sous Service</th>
+                                        <th class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let dossier of dossiers">
+
+                                        <td>{{dossier.id}}</td>
+                                        <td>{{dossier.code}}</td>
+                                        <td>{{dossier.motCle}}</td>
+                                        <td>{{dossier.dateProduction}}</td>
+                                        <td>{{dossier.typeDocument.code}}</td>
+                                        <td>{{dossier.boite.code}}</td>
+                                        <td>{{dossier.process.nom}}</td>
+                                        <td>{{dossier.service.nom}}</td>
+                                        <td>{{dossier.sousService.nom}}</td>
+                                        <td class="text-end">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="fas fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" (click)="onClickModifie(dossier.id)"><i
+                                                            class="far fa-edit me-2"></i>Modifier</a>
+                                                    <a class="dropdown-item" [routerLink]="dossier.id"><i
+                                                            class="far fa-eye me-2"></i>View</a>
+                                                    <a class="dropdown-item" (click)="onClickDelete(dossier.id)"><i
+                                                            class="far fa-trash-alt me-2"></i>Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <mat-paginator
+                            [length]="numberOfElement"
+                            [pageSize]="pageSize"
+                            [pageSizeOptions]="[2,5,10,this.numberOfElement]"
+                            [showFirstLastButtons]="true"
+                            (page)="onPageChange($event)"
+                            ></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

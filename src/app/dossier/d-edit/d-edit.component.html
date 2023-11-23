@@ -1,0 +1,98 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Modification de Dossier</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/dossier">Dossier</a></li>
+                        <li class="breadcrumb-item active">edit/li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="dossierForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Code:</label>
+                                        <input type="text" class="form-control" formControlName="code">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date de production:</label>
+                                        <input class="form-control datetimepicker" type="date"
+                                                formControlName="dateProduction">
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Boîte:</label>
+                                        <select class="form-control" formControlName="boite">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let boite of boites" [ngValue]="boite">{{boite.code}}
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Service : </label>
+                                        <select class="form-control" formControlName="service">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let service of services" [ngValue]="service">{{service.nom}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label>Mot clé:</label>
+                                        <input type="text" class="form-control" formControlName="motCle">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type de document:</label>
+                                        <select class="form-control" formControlName="typeDocument">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let typeDocument of typeDocuments" [ngValue]="typeDocument">
+                                                {{typeDocument.code}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Process : </label>
+                                        <select class="form-control" formControlName="process">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let process of processs" [ngValue]="process">{{process.nom}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sous Service : </label>
+                                        <select class="form-control" formControlName="sousService">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let sousService of sousServices" [ngValue]="sousService">
+                                                {{sousService.nom}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="text-end mt-4">
+                                        <button type="submit" class="btn btn-primary"
+                                            (click)="onSubmit()">Modifier</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

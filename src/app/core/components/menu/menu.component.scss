@@ -1,0 +1,9 @@
+/* Applique une rotation de 90 degrés à la flèche vers la droite */
+.nav-link .fas.fa-chevron-right {
+    transform: rotate(90deg);
+}
+
+/* Assurez-vous que la flèche pointe vers la droite par défaut */
+.nav-link .fas.fa-chevron-right {
+    transform: none;
+}

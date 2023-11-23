@@ -1,0 +1,60 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Modification de Rayon</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/rayon">Rayon</a></li>
+                        <li class="breadcrumb-item active">add</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="rayonForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Code:</label>
+                                        <input type="text" class="form-control" formControlName="code">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Salle:</label>
+                                        <select class="form-control" formControlName="salle">
+                                            <option [ngValue]="null"></option>
+                                            <option *ngFor="let salle of salles" [ngValue]="salle">{{salle.code}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                
+                                    <div class="form-group">
+                                        <label>Nom:</label>
+                                        <input type="text" class="form-control" formControlName="nom">
+                                    </div>
+
+                                    
+
+                                    <div class="text-end mt-4">
+                                        <button type="submit" class="btn btn-primary"
+                                            (click)="onSubmit()">Modifier</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

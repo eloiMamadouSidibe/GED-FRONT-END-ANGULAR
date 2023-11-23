@@ -1,0 +1,59 @@
+<div class="content container">
+    <div class="row justify-content-center my-5">
+        <div class="col-xl-10">
+            <div class="card">
+                <div class="card-body">
+
+
+
+                    <div class="row">
+                        <h1>Utilisateur [{{user.login}}]
+                        <i class=" bg-success text-white" *ngIf="user.activated;else isNotActived">Activé</i>
+                        <ng-template #isNotActived>
+                            <i class="bg-danger text-white">Désactivé</i>
+                        </ng-template>
+                        </h1>
+                        <div class="col-md-6">
+                            <div class="titre">
+                                <p class="">
+                                    Login <br><hr>
+                                    Prénom <br><hr>
+                                    Nom <br><hr>
+                                    Email <br><hr>
+                                    Créé par <br><hr>
+                                    Créé le <br><hr>
+                                    Modifié par <br><hr>
+                                    Modifié le <br><hr>
+                                    Rôle <br><hr>
+                                </p>
+                            </div>
+                            <button class="btn btn-primary"routerLink="../">Retour</button>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="">
+                                <p class="">
+                                    {{user.login}} <br><hr>
+                                    {{user.firstName}} <br><hr>
+                                    {{user.lastName}} <br><hr>
+                                    {{user.email}} <br><hr>
+                                    {{user.createdBy}} <br><hr>
+                                    {{user.createdDate}} <br><hr>
+                                    {{user.lastModifiedBy}} <br><hr>
+                                    {{user.lastModifiedDate | date : "dd/M/yyyy hh:MM"}} <br><hr>
+                                   <i class="badge badge-pill bg-primary-light mb-1"> {{user.authorities}}</i><br><hr>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

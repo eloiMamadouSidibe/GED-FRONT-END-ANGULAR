@@ -1,0 +1,47 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row justify-content-center my-5">
+            <div class="col-xl-10">
+                <div class="card">
+                    <div class="card-body">
+
+
+
+                        <div class="row">
+                            <h1>Rayon [{{rayon.nom}}]</h1>
+                            <div class="col-md-6">
+                                <div class="titre">
+                                    <p class="">
+                                        ID <br><hr>
+                                        
+                                        Code <br><hr>
+                                        
+                                        Nom <br><hr>
+
+                                        Salle <br><hr>
+                                    </p>
+                                </div>
+                                <button class="btn btn-primary" routerLink="../">Retour</button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="">
+                                    <p class="">
+                                        {{rayon.id}} <br><hr>
+                                        
+                                        {{rayon.code}} <br><hr>
+                                        
+                                        {{rayon.nom}} <br><hr>
+
+                                        {{rayon.salle.code}} <br><hr>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

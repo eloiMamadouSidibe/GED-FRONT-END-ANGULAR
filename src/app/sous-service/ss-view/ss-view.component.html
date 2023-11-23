@@ -1,0 +1,47 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row justify-content-center my-5">
+            <div class="col-xl-10">
+                <div class="card">
+                    <div class="card-body">
+
+
+
+                        <div class="row">
+                            <h1>Sous Service [{{sousService.nom}}]</h1>
+                            <div class="col-md-6">
+                                <div class="titre">
+                                    <p class="">
+                                        ID <br><hr>
+                                        
+                                        Code <br><hr>
+                                        
+                                        Nom <br><hr>
+
+                                        Service <br><hr>
+                                    </p>
+                                </div>
+                                <button class="btn btn-primary" routerLink="../">Retour</button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="">
+                                    <p class="">
+                                        {{sousService.id}} <br><hr>
+                                        
+                                        {{sousService.code}} <br><hr>
+                                        
+                                        {{sousService.nom}} <br><hr>
+
+                                        {{sousService.service.nom}} <br><hr>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

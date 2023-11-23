@@ -1,0 +1,71 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Salle</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Salle</li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <a routerLink="add" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-stripped table-hover datatable">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Code</th>
+                                        <th>Superficie</th>
+                                        <th class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let salle of salles">
+
+                                        <td>{{salle.id}}</td>
+                                        <td>{{salle.code}}</td>
+                                        <td>{{salle.superficie}}m²</td>
+                                        <td class="text-end">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="fas fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" (click)="onClickModifie(salle.id)"><i
+                                                            class="far fa-edit me-2"></i>Modifier</a>
+                                                    <a class="dropdown-item" [routerLink]="salle.id"><i
+                                                            class="far fa-eye me-2"></i>View</a>
+                                                    <a class="dropdown-item" (click)="onClickDelete(salle.id)"><i
+                                                            class="far fa-trash-alt me-2"></i>Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <mat-paginator
+                            [length]="numberOfElement"
+                            [pageSize]="pageSize"
+                            [pageSizeOptions]="[2,5,10,this.numberOfElement]"
+                            [showFirstLastButtons]="true"
+                            (page)="onPageChange($event)"
+                            ></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
